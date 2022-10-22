@@ -31,6 +31,7 @@ TARGET_KERNEL_ARCH := arm64
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_BOOT_HEADER_VERSION := 3
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image
 
 # Platform
 TARGET_BOARD_PLATFORM := holi
@@ -85,6 +86,9 @@ RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so \
     $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@1.0.so \
     $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@2.0.so
+
+# TWRP
+TW_LOAD_VENDOR_MODULES := "adsp_loader_dlkm.ko mmi_relay.ko moto_f_usbnet.ko wl2864c.ko exfat.ko mmi_annotate.ko mmi_sc8549.ko qpnp_adaptive_charge.ko wl2866d.ko focaltech_v2_mmi.ko mmi_info.ko mmi-smbcharger-iio.ko sensors_class.ko goodix_v1510_mmi.ko mmi_parallel_charger_iio.ko mmi_sys_temp.ko touchscreen_mmi.ko"
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
