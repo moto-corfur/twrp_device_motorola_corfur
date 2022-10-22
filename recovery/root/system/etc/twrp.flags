@@ -1,0 +1,26 @@
+# mount point           fstype            device                                        flags
+
+/boot                   emmc            /dev/block/bootdevice/by-name/boot              flags=slotselect;backup=1;flashimg=1
+/dtbo                   emmc            /dev/block/bootdevice/by-name/dtbo              flags=slotselect;backup=1;flashimg=1
+/fsg                    emmc            /dev/block/bootdevice/by-name/fsg               flags=slotselect;backup=1;flashimg=1
+/modem                  emmc            /dev/block/bootdevice/by-name/modem             flags=slotselect;backup=1;flashimg=1
+/vbmeta                 emmc            /dev/block/bootdevice/by-name/vbmeta            flags=slotselect;backup=1;flashimg=1
+/vbmeta_system          emmc            /dev/block/bootdevice/by-name/vbmeta_system     flags=slotselect;backup=1;flashimg=1
+/vendor_boot            emmc            /dev/block/bootdevice/by-name/vendor_boot       flags=slotselect;backup=1;flashimg=1
+/metadata               ext4            /dev/block/bootdevice/by-name/metadata          flags=backup=1;flashimg=1
+/misc                   emmc            /dev/block/bootdevice/by-name/misc              flags=backup=1;flashimg=1
+/modemst1               emmc            /dev/block/bootdevice/by-name/modemst1          flags=backup=1;flashimg=1
+/modemst2               emmc            /dev/block/bootdevice/by-name/modemst2          flags=backup=1;flashimg=1
+/persist                emmc            /dev/block/bootdevice/by-name/persist           flags=backup=1;flashimg=1
+/prodpersist            emmc            /dev/block/bootdevice/by-name/prodpersist       flags=backup=1;flashimg=1
+
+# Logical partitions
+/product		ext4		product						flags=display=Product
+/system			ext4		system						flags=display=System
+/system_ext		ext4		system_ext					flags=display=System_EXT
+/vendor			ext4		vendor						flags=display=Vendor
+
+# Internal , OTA & external storage
+/data                  f2fs               /dev/block/bootdevice/by-name/userdata                        flags=fileencryption=ice:aes-256-cts
+/external_sd           auto               /dev/block/mmcblk0p1                    /dev/block/mmcblk0    flags=storage;wipeingui;removable
+/usb-otg               auto               /dev/block/sdg1                         /dev/block/sdg        flags=storage;wipeingui;removable
